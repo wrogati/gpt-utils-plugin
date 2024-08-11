@@ -1,8 +1,6 @@
 import esbuild from "esbuild";
 import process from "process";
 import builtins from "builtin-modules";
-import fs from "fs/promises";
-import path from "path";
 import { spawn } from "child_process";
 
 const banner = `/*
