@@ -10,54 +10,70 @@ import {
 	Setting,
 } from "obsidian";
 
-import { GPTService } from "gtp.service";
+import {
+	GPTService,
+	OpenAIAPIKeyMisConfigurationException,
+	TargetLangMisConfigurationException,
+} from "gtp.service";
+import { TargetLanguageSettingModal } from "targetLanguage.modal";
+import { TargetLanguageService } from "targetLanguage.service";
+import { OpenAIAPIKeySettingModal } from "openAIApiKeySettings.modal";
+import { TranslateContentCommand } from "translateContent.command";
 
 export interface GPTSettings {
 	openaiApiKey: string;
 }
 
-interface AppPluginSettings {
-	mySetting: string;
+export interface langOptions {
+	label: string;
+	isoCode: string;
+}
+
+export interface TranslationOptionsSettings {
+	targetLang: langOptions;
+}
+
+export interface AppPluginSettings {
 	gptSettings: GPTSettings;
+	translationOptionsSettings: TranslationOptionsSettings;
 }
 
 const DEFAULT_SETTINGS: AppPluginSettings = {
-	mySetting: "default",
 	gptSettings: {
-		openaiApiKey: "defalt",
+		openaiApiKey: "empty",
+	},
+	translationOptionsSettings: {
+		targetLang: {
+			label: "empty",
+			isoCode: "empty",
+		},
 	},
 };
+
+const OPTIONS = [
+	{ label: "Empty", isoCode: "empty" },
+	{ label: "English", isoCode: "en" },
+	{ label: "Portuguese Brazil", isoCode: "pt-br" },
+	{ label: "Espanhol", isoCode: "es" },
+];
 
 export default class GTPUtilPlugin extends Plugin {
 	settings: AppPluginSettings;
 
 	async onload() {
+		console.log(`estou vivo`);
 		await this.loadSettings();
 
-		const text = new GPTService(this.settings.gptSettings);
+		const translateContentCommand = new TranslateContentCommand(
+			this,
+			this.app,
+			this.settings,
+			OPTIONS
+		);
 
-		this.addCommand({
-			id: "translate-content",
-			name: "Translate Content",
-			editorCallback: async (editor: Editor, view: MarkdownView) => {
-				const sel = editor.getSelection();
+		await translateContentCommand.register();
 
-				const contentTranslated = await text.textTranslate(sel);
-
-				const selectionStart = editor.getCursor("from");
-				const selectionEnd = editor.getCursor("to");
-
-				const insertionPos: EditorPosition =
-					this.comparePositions(selectionStart, selectionEnd) > 0
-						? selectionStart
-						: selectionEnd;
-
-				editor.replaceRange(
-					`\n\n**Translated to english:**\n${contentTranslated}`,
-					insertionPos
-				);
-			},
-		});
+		this.addSettingTab(new GPTUtilSettingTab(this.app, this));
 	}
 
 	onunload() {}
@@ -72,31 +88,17 @@ export default class GTPUtilPlugin extends Plugin {
 
 	async saveSettings() {
 		await this.saveData(this.settings);
-		console.log(`secret is saved: `, this.settings);
-	}
-
-	/**
-	 * Function to compare two positions in the editor.
-	 *
-	 * @param pos1 - First position to be compared.
-	 * @param pos2 - Second position to be compared.
-	 * @returns Positive number if pos1 is after pos2, negative if before, or 0 if they are equal.
-	 */
-	comparePositions(pos1: EditorPosition, pos2: EditorPosition): number {
-		if (pos1.line === pos2.line) {
-			return pos1.ch - pos2.ch;
-		} else {
-			return pos1.line - pos2.line;
-		}
 	}
 }
 
 class GPTUtilSettingTab extends PluginSettingTab {
 	plugin: GTPUtilPlugin;
+	private targetLanguageService: TargetLanguageService;
 
 	constructor(app: App, plugin: GTPUtilPlugin) {
 		super(app, plugin);
 		this.plugin = plugin;
+		this.targetLanguageService = new TargetLanguageService();
 	}
 
 	display(): void {
@@ -130,6 +132,54 @@ class GPTUtilSettingTab extends PluginSettingTab {
 						await this.plugin.saveSettings();
 					})
 			);
+
+		containerEl.createEl("hr");
+
+		//preferences
+		containerEl.createEl("h2", {
+			text: "Translate Preferences",
+		});
+
+		// new Setting(containerEl)
+		// 	.setName("Origin Language")
+		// 	.setDesc("Text language will auto detected.")
+		// 	.addToggle((toggle) =>
+		// 		toggle
+		// 			.setValue(
+		// 				this.plugin.settings.translationOptionsSettings
+		// 					.targetLang.label
+		// 			)
+		// 			.onChange(async (value) => {
+		// 				this.plugin.settings.translationOptionsSettings.targetLang.label =
+		// 					value;
+		// 				await this.plugin.saveSettings();
+		// 			})
+		// 	);
+
+		new Setting(containerEl)
+			.setName("Choose a target language")
+			.setDesc("Select an option from the dropdown menu.")
+			.addDropdown((dropdown) => {
+				OPTIONS.forEach((option) => {
+					dropdown.addOption(option.isoCode, option.label);
+				});
+				dropdown
+					.setValue(
+						this.plugin.settings.translationOptionsSettings
+							.targetLang.isoCode
+					)
+					.onChange(async (value) => {
+						this.plugin.settings.translationOptionsSettings.targetLang.isoCode =
+							value;
+
+						this.plugin.settings.translationOptionsSettings.targetLang.label =
+							await this.targetLanguageService.setLabelTargetLang(
+								value,
+								OPTIONS
+							);
+						await this.plugin.saveSettings();
+					});
+			});
 
 		containerEl.createEl("hr");
 
