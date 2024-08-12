@@ -19,3 +19,35 @@ But that’s just the beginning. We’re actively working on adding more feature
 Be among the first to harness the power of GPT Utils and transform the way you use Obsidian. Stay tuned for updates and new features that will make your workflow even more efficient.
 
 Embrace the future of productivity—start using GPT Utils today!
+
+---
+
+## About the Author
+
+<div>
+    <img src="assets/profile.png" alt="Wellington" width="200" height="200" style="border-radius: 50%; margin-left: auto; margin-right: auto;" />
+</div>
+
+Hello! I’m **Wellington Rogati**, the developer behind **GPT Utils**. I am committed to creating tools that make your daily life easier, allowing you to focus on what really matters. This plugin is offered for free to the Obsidian community, but like any project, it involves time and dedication.
+
+**Here’s where you can find me:**
+GitHub: https://github.com/wrogati
+LinkedIn: https://www.linkedin.com/in/wellington-rogati/
+
+### Contribute to the Development
+
+If you’ve found value in GPT Utils and wish to support my work, please consider making a contribution. This will help cover the time invested and encourage the continued development of new features.
+
+![Happy](assets/donkey-sad.gif)
+
+**Make a donation via PayPal:**
+
+Via QR Code
+![QR Code](assets/paypal-qrcode.png)
+
+or click the button
+[![PayPal Button](assets/donate-button-paypal.png)](https://www.paypal.com/donate/?hosted_button_id=CGX73TDQ6LKKA)
+
+Your contribution, no matter how small, is greatly appreciated and will allow me to continue improving GPT Utils for the community. Thank you very much for your support!
+
+![Happy](assets/sillicon-valley-happy-1.gif)
