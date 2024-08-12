@@ -76,8 +76,9 @@ if (prod) {
 	await context.rebuild();
 
 	try {
+		//This procedure exists only to make easy local tests
 		console.log(`Installing plugin...`);
-		const destination = `${process.env.OBSIDIAN_VAULT_BASE_PATH}/.obsidian/plugins/obsidian-plugin-test`;
+		const destination = `${process.env.OBSIDIAN_VAULT_BASE_PATH}/.obsidian/plugins/gpt-utils-plugin`;
 		await executeCommandWithSpawn("cp", [
 			"main.js",
 			"styles.css",
