@@ -22,6 +22,34 @@ Embrace the future of productivity—start using GPT Utils today!
 
 ---
 
+### Demonstration of Functionality
+
+Here are some examples of how **GPT Utils** works within Obsidian:
+
+_Using it is very simple:_
+
+1. Open the file you want to translate.
+2. Select the text you want to translate.
+3. Access the main menu through the shortcut **Ctrl + P** and search for "GPT
+
+**Utils: Translate content**"
+![Demo translate to pt-br](assets/demo-translate-to-spanish.gif)
+
+_To change the target language, do the following:_
+
+1. Go to Obsidian settings.
+2. Go to Community plugins.
+3. Search for the "GPT Utils" plugin and click on the gear icon.
+4. Go to "**Translate Preferences**" and change the language.
+
+![Demo translate to pt-br](assets/demo-change-target-lang-to-pt.gif)
+
+_See the example of translation to Brazilian Portuguese:_
+
+![Demo translate to pt-br](assets/demo-translate-to-pt.gif)
+
+---
+
 ## About the Author
 
 <div>
