@@ -45,8 +45,7 @@ If you’ve found value in GPT Utils and wish to support my work, please conside
 Via QR Code
 ![QR Code](assets/paypal-qrcode.png)
 
-or click the button
-[![PayPal Button](assets/donate-button-paypal.png)](https://www.paypal.com/donate/?hosted_button_id=CGX73TDQ6LKKA)
+or use the link: https://www.paypal.com/donate/?hosted_button_id=CGX73TDQ6LKKA
 
 Your contribution, no matter how small, is greatly appreciated and will allow me to continue improving GPT Utils for the community. Thank you very much for your support!
 
