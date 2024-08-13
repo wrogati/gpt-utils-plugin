@@ -1,7 +1,7 @@
 {
 	"id": "gpt-utils",
-	"name": "GTP Utils",
-	"version": "1.0.0",
+	"name": "GPT Utils",
+	"version": "1.0.1",
 	"minAppVersion": "0.15.0",
 	"description": "Generative AI helping daily with the good functions.",
 	"author": "Wellington Rogati",

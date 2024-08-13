@@ -1,6 +1,6 @@
 {
 	"name": "gpt-utils-plugin",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Generative AI helping daily with the good functions.",
 	"main": "main.js",
 	"scripts": {

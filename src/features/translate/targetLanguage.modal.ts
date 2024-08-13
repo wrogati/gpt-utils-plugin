@@ -1,4 +1,4 @@
-import GTPUtilPlugin from "src/main";
+import GPTUtilPlugin from "src/main";
 import { App, Modal, Setting } from "obsidian";
 import { TargetLanguageService } from "src/features/translate/targetLanguage.service";
 import { LANG_OPTIONS } from "../../constants/settings";
@@ -7,7 +7,7 @@ export class TargetLanguageSettingModal extends Modal {
 	selectedOption: string;
 	private targetLanguageService: TargetLanguageService;
 
-	constructor(app: App, private plugin: GTPUtilPlugin) {
+	constructor(app: App, private plugin: GPTUtilPlugin) {
 		super(app);
 		this.selectedOption = LANG_OPTIONS[0].isoCode; // default value
 		this.targetLanguageService = new TargetLanguageService();
