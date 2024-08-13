@@ -1,6 +1,6 @@
-import GTPUtilPlugin from "main";
+import GTPUtilPlugin from "src/main";
 import { App, Modal, Setting } from "obsidian";
-import { TranslateContentCommand } from "translateContent.command";
+import { TranslateContentCommand } from "src/translateContent.command";
 
 //todo refact
 const OPTIONS = [

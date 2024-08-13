@@ -1,4 +1,4 @@
-import { langOptions } from "main";
+import { langOptions } from "src/main";
 
 export class TargetLanguageService {
 	public async setLabelTargetLang(

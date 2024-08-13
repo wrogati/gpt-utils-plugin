@@ -14,11 +14,11 @@ import {
 	GPTService,
 	OpenAIAPIKeyMisConfigurationException,
 	TargetLangMisConfigurationException,
-} from "gtp.service";
-import { TargetLanguageSettingModal } from "targetLanguage.modal";
-import { TargetLanguageService } from "targetLanguage.service";
-import { OpenAIAPIKeySettingModal } from "openAIApiKeySettings.modal";
-import { TranslateContentCommand } from "translateContent.command";
+} from "src/gtp.service";
+import { TargetLanguageSettingModal } from "src/targetLanguage.modal";
+import { TargetLanguageService } from "src/targetLanguage.service";
+import { OpenAIAPIKeySettingModal } from "src/openAIApiKeySettings.modal";
+import { TranslateContentCommand } from "src/translateContent.command";
 
 export interface GPTSettings {
 	openaiApiKey: string;

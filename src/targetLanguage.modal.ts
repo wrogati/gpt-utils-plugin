@@ -1,6 +1,6 @@
-import GTPUtilPlugin, { langOptions } from "main";
+import GTPUtilPlugin, { langOptions } from "src/main";
 import { App, Modal, Setting } from "obsidian";
-import { TargetLanguageService } from "targetLanguage.service";
+import { TargetLanguageService } from "src/targetLanguage.service";
 
 export class TargetLanguageSettingModal extends Modal {
 	selectedOption: string;

@@ -1,4 +1,4 @@
-import { GPTSettings, TranslationOptionsSettings } from "main";
+import { GPTSettings, TranslationOptionsSettings } from "src/main";
 import OpenAI from "openai";
 
 export class GPTService {
