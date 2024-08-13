@@ -14,6 +14,16 @@ Currently, GPT Utils offers a robust translation feature. Need to translate your
 
 But that’s just the beginning. We’re actively working on adding more features to make your Obsidian experience smoother and more productive. Whether it’s content generation, summarization, or any other task you can think of, GPT Utils will soon become an indispensable tool in your daily routine.
 
+## Translate - Language Options
+
+-   **English** <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English Flag" width="20"/>
+-   **Spanish** <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Spain.svg" alt="Spanish Flag" width="20"/>
+-   **Portuguese (Brazil)** <img src="https://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg" alt="Brazilian Flag" width="20"/>
+-   **French** <img src="https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg" alt="French Flag" width="20"/>
+-   **Italian** <img src="https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg" alt="Italian Flag" width="20"/>
+
+See the complete list: [Available Languages](docs/languages.md)
+
 ### Join the Community
 
 Be among the first to harness the power of GPT Utils and transform the way you use Obsidian. Stay tuned for updates and new features that will make your workflow even more efficient.
