@@ -1,4 +1,4 @@
-import GTPUtilPlugin, { langOptions } from "src/main";
+import GTPUtilPlugin from "src/main";
 import { App, Modal, Setting } from "obsidian";
 import { TargetLanguageService } from "src/targetLanguage.service";
 import { LANG_OPTIONS } from "./constants/settings";

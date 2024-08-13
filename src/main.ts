@@ -1,23 +1,5 @@
-import {
-	App,
-	Editor,
-	EditorPosition,
-	MarkdownView,
-	Modal,
-	Notice,
-	Plugin,
-	PluginSettingTab,
-	Setting,
-} from "obsidian";
-
-import {
-	GPTService,
-	OpenAIAPIKeyMisConfigurationException,
-	TargetLangMisConfigurationException,
-} from "src/gtp.service";
-import { TargetLanguageSettingModal } from "src/targetLanguage.modal";
+import { App, Plugin, PluginSettingTab, Setting } from "obsidian";
 import { TargetLanguageService } from "src/targetLanguage.service";
-import { OpenAIAPIKeySettingModal } from "src/openAIApiKeySettings.modal";
 import { TranslateContentCommand } from "src/translateContent.command";
 import { LANG_OPTIONS } from "./constants/settings";
 
@@ -55,7 +37,6 @@ export default class GTPUtilPlugin extends Plugin {
 	settings: AppPluginSettings;
 
 	async onload() {
-		console.log(`estou vivo`);
 		await this.loadSettings();
 
 		const translateContentCommand = new TranslateContentCommand(
@@ -132,22 +113,6 @@ class GPTUtilSettingTab extends PluginSettingTab {
 		containerEl.createEl("h2", {
 			text: "Translate Preferences",
 		});
-
-		// new Setting(containerEl)
-		// 	.setName("Origin Language")
-		// 	.setDesc("Text language will auto detected.")
-		// 	.addToggle((toggle) =>
-		// 		toggle
-		// 			.setValue(
-		// 				this.plugin.settings.translationOptionsSettings
-		// 					.targetLang.label
-		// 			)
-		// 			.onChange(async (value) => {
-		// 				this.plugin.settings.translationOptionsSettings.targetLang.label =
-		// 					value;
-		// 				await this.plugin.saveSettings();
-		// 			})
-		// 	);
 
 		new Setting(containerEl)
 			.setName("Choose a target language")

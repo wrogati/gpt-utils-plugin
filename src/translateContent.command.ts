@@ -3,8 +3,8 @@ import {
 	OpenAIAPIKeyMisConfigurationException,
 	TargetLangMisConfigurationException,
 } from "src/gtp.service";
-import GTPUtilPlugin, { AppPluginSettings, langOptions } from "src/main";
-import { App, Editor, EditorPosition, MarkdownView, Plugin } from "obsidian";
+import GTPUtilPlugin, { AppPluginSettings } from "src/main";
+import { App, Editor, EditorPosition, MarkdownView } from "obsidian";
 import { OpenAIAPIKeySettingModal } from "src/openAIApiKeySettings.modal";
 import { TargetLanguageSettingModal } from "src/targetLanguage.modal";
 
