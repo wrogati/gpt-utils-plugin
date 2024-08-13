@@ -2,11 +2,11 @@ import {
 	GPTService,
 	OpenAIAPIKeyMisConfigurationException,
 	TargetLangMisConfigurationException,
-} from "src/gtp.service";
+} from "src/gpt/gtp.service";
 import GTPUtilPlugin, { AppPluginSettings } from "src/main";
 import { App, Editor, EditorPosition, MarkdownView } from "obsidian";
-import { OpenAIAPIKeySettingModal } from "src/openAIApiKeySettings.modal";
-import { TargetLanguageSettingModal } from "src/targetLanguage.modal";
+import { OpenAIAPIKeySettingModal } from "src/gpt/openAIApiKeySettings.modal";
+import { TargetLanguageSettingModal } from "src/features/translate/targetLanguage.modal";
 
 export class TranslateContentCommand {
 	constructor(

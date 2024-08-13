@@ -1,6 +1,6 @@
 import { App, Plugin, PluginSettingTab, Setting } from "obsidian";
-import { TargetLanguageService } from "src/targetLanguage.service";
-import { TranslateContentCommand } from "src/translateContent.command";
+import { TargetLanguageService } from "src/features/translate/targetLanguage.service";
+import { TranslateContentCommand } from "src/features/translate/translateContent.command";
 import { LANG_OPTIONS } from "./constants/settings";
 
 export interface GPTSettings {
