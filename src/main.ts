@@ -33,7 +33,7 @@ const DEFAULT_SETTINGS: AppPluginSettings = {
 	},
 };
 
-export default class GTPUtilPlugin extends Plugin {
+export default class GPTUtilPlugin extends Plugin {
 	settings: AppPluginSettings;
 
 	async onload() {
@@ -66,10 +66,10 @@ export default class GTPUtilPlugin extends Plugin {
 }
 
 class GPTUtilSettingTab extends PluginSettingTab {
-	plugin: GTPUtilPlugin;
+	plugin: GPTUtilPlugin;
 	private targetLanguageService: TargetLanguageService;
 
-	constructor(app: App, plugin: GTPUtilPlugin) {
+	constructor(app: App, plugin: GPTUtilPlugin) {
 		super(app, plugin);
 		this.plugin = plugin;
 		this.targetLanguageService = new TargetLanguageService();
@@ -81,7 +81,7 @@ class GPTUtilSettingTab extends PluginSettingTab {
 		containerEl.empty();
 
 		containerEl.createEl("h1", {
-			text: "GTP Util",
+			text: "GPT Util",
 		});
 
 		containerEl.createEl("span", {

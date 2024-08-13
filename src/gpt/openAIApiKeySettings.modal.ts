@@ -1,11 +1,11 @@
-import GTPUtilPlugin from "src/main";
+import GPTUtilPlugin from "src/main";
 import { App, Modal, Setting } from "obsidian";
 import { TranslateContentCommand } from "src/features/translate/translateContent.command";
 
 export class OpenAIAPIKeySettingModal extends Modal {
 	selectedOption: string;
 
-	constructor(app: App, private plugin: GTPUtilPlugin) {
+	constructor(app: App, private plugin: GPTUtilPlugin) {
 		super(app);
 	}
 
