@@ -12,8 +12,7 @@ export class TranslateContentCommand {
 	constructor(
 		private plugin: GTPUtilPlugin,
 		private app: App,
-		private settings: AppPluginSettings,
-		private options: langOptions[]
+		private settings: AppPluginSettings
 	) {}
 
 	async register() {
@@ -47,7 +46,6 @@ export class TranslateContentCommand {
 					if (e instanceof TargetLangMisConfigurationException) {
 						const targetLangModal = new TargetLanguageSettingModal(
 							this.app,
-							this.options,
 							this.plugin
 						);
 						targetLangModal.open();

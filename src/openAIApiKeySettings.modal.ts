@@ -2,14 +2,6 @@ import GTPUtilPlugin from "src/main";
 import { App, Modal, Setting } from "obsidian";
 import { TranslateContentCommand } from "src/translateContent.command";
 
-//todo refact
-const OPTIONS = [
-	{ label: "Empty", isoCode: "empty" },
-	{ label: "English", isoCode: "en" },
-	{ label: "Portuguese Brazil", isoCode: "pt-br" },
-	{ label: "Espanhol", isoCode: "es" },
-];
-
 export class OpenAIAPIKeySettingModal extends Modal {
 	selectedOption: string;
 
@@ -40,8 +32,7 @@ export class OpenAIAPIKeySettingModal extends Modal {
 							new TranslateContentCommand(
 								this.plugin,
 								this.app,
-								this.plugin.settings,
-								OPTIONS
+								this.plugin.settings
 							);
 
 						await translateContentCommand.register();

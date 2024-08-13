@@ -1,18 +1,15 @@
 import GTPUtilPlugin, { langOptions } from "src/main";
 import { App, Modal, Setting } from "obsidian";
 import { TargetLanguageService } from "src/targetLanguage.service";
+import { LANG_OPTIONS } from "./constants/settings";
 
 export class TargetLanguageSettingModal extends Modal {
 	selectedOption: string;
 	private targetLanguageService: TargetLanguageService;
 
-	constructor(
-		app: App,
-		private langOptions: langOptions[],
-		private plugin: GTPUtilPlugin
-	) {
+	constructor(app: App, private plugin: GTPUtilPlugin) {
 		super(app);
-		this.selectedOption = langOptions[0].isoCode; // default value
+		this.selectedOption = LANG_OPTIONS[0].isoCode; // default value
 		this.targetLanguageService = new TargetLanguageService();
 	}
 
@@ -28,7 +25,7 @@ export class TargetLanguageSettingModal extends Modal {
 		new Setting(contentEl)
 			.setName("Select Target Language Option")
 			.addDropdown((dropdown) => {
-				this.langOptions.forEach((option) => {
+				LANG_OPTIONS.forEach((option) => {
 					dropdown.addOption(option.isoCode, option.label);
 				});
 
@@ -40,8 +37,7 @@ export class TargetLanguageSettingModal extends Modal {
 
 						this.plugin.settings.translationOptionsSettings.targetLang.label =
 							await this.targetLanguageService.setLabelTargetLang(
-								value,
-								this.langOptions
+								value
 							);
 						await this.plugin.saveSettings();
 					});

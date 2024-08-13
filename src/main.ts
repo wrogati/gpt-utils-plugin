@@ -19,6 +19,7 @@ import { TargetLanguageSettingModal } from "src/targetLanguage.modal";
 import { TargetLanguageService } from "src/targetLanguage.service";
 import { OpenAIAPIKeySettingModal } from "src/openAIApiKeySettings.modal";
 import { TranslateContentCommand } from "src/translateContent.command";
+import { LANG_OPTIONS } from "./constants/settings";
 
 export interface GPTSettings {
 	openaiApiKey: string;
@@ -50,13 +51,6 @@ const DEFAULT_SETTINGS: AppPluginSettings = {
 	},
 };
 
-const OPTIONS = [
-	{ label: "Empty", isoCode: "empty" },
-	{ label: "English", isoCode: "en" },
-	{ label: "Portuguese Brazil", isoCode: "pt-br" },
-	{ label: "Espanhol", isoCode: "es" },
-];
-
 export default class GTPUtilPlugin extends Plugin {
 	settings: AppPluginSettings;
 
@@ -67,8 +61,7 @@ export default class GTPUtilPlugin extends Plugin {
 		const translateContentCommand = new TranslateContentCommand(
 			this,
 			this.app,
-			this.settings,
-			OPTIONS
+			this.settings
 		);
 
 		await translateContentCommand.register();
@@ -160,7 +153,7 @@ class GPTUtilSettingTab extends PluginSettingTab {
 			.setName("Choose a target language")
 			.setDesc("Select an option from the dropdown menu.")
 			.addDropdown((dropdown) => {
-				OPTIONS.forEach((option) => {
+				LANG_OPTIONS.forEach((option) => {
 					dropdown.addOption(option.isoCode, option.label);
 				});
 				dropdown
@@ -174,8 +167,7 @@ class GPTUtilSettingTab extends PluginSettingTab {
 
 						this.plugin.settings.translationOptionsSettings.targetLang.label =
 							await this.targetLanguageService.setLabelTargetLang(
-								value,
-								OPTIONS
+								value
 							);
 						await this.plugin.saveSettings();
 					});
