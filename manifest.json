@@ -1,5 +1,5 @@
 {
-	"id": "gpt-utils-plugin",
+	"id": "gpt-utils",
 	"name": "GTP Utils",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
