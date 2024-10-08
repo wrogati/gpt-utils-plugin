@@ -12,15 +12,15 @@ export class OpenAIAPIKeySettingModal extends Modal {
 	async onOpen() {
 		const { contentEl } = this;
 
-		contentEl.createEl("h2", { text: "GPT Utils" });
+		contentEl.createEl("h2", { text: "GPT utils" });
 
 		contentEl.createEl("p", {
-			text: "Please review your OpenAI API Key update this configuration",
+			text: "Please review your openAI api key update this configuration",
 		});
 
 		new Setting(contentEl)
-			.setName("Your OpenAI API Key")
-			.setDesc("API Key for OpenAI")
+			.setName("Your openAI api key")
+			.setDesc("Api key for openAI")
 			.addText((text) =>
 				text
 					.setPlaceholder("Enter your secret")

@@ -23,12 +23,12 @@ export interface AppPluginSettings {
 
 const DEFAULT_SETTINGS: AppPluginSettings = {
 	gptSettings: {
-		openaiApiKey: "empty",
+		openaiApiKey: "",
 	},
 	translationOptionsSettings: {
 		targetLang: {
-			label: "empty",
-			isoCode: "empty",
+			label: "",
+			isoCode: "",
 		},
 	},
 };
@@ -76,14 +76,13 @@ class GPTUtilSettingTab extends PluginSettingTab {
 	}
 
 	display(): void {
+
 		const { containerEl } = this;
 
 		containerEl.empty();
-
-		containerEl.createEl("h1", {
-			text: "GPT Util",
-		});
-
+		
+		new Setting(containerEl).setName('GPT util').setHeading()
+	
 		containerEl.createEl("span", {
 			text: "Welcome to settings panel!",
 		});
@@ -91,12 +90,12 @@ class GPTUtilSettingTab extends PluginSettingTab {
 		containerEl.createEl("hr");
 
 		containerEl.createEl("h4", {
-			text: "GPT Util Settings:",
+			text: "GPT util settings:",
 		});
 
 		new Setting(containerEl)
-			.setName("Your OpenAI API Key")
-			.setDesc("API Key for OpenAI")
+			.setName("Your openAI api key")
+			.setDesc("Api key for openAI")
 			.addText((text) =>
 				text
 					.setPlaceholder("Enter your secret")
@@ -111,7 +110,7 @@ class GPTUtilSettingTab extends PluginSettingTab {
 
 		//preferences
 		containerEl.createEl("h2", {
-			text: "Translate Preferences",
+			text: "Translate configurations",
 		});
 
 		new Setting(containerEl)
@@ -146,7 +145,7 @@ class GPTUtilSettingTab extends PluginSettingTab {
 		});
 
 		containerEl.createEl("h4", {
-			text: "Create an OpenAI API Key Tutorial:",
+			text: "Create an openAI api key tutorial:",
 		});
 
 		containerEl.createEl("a", {

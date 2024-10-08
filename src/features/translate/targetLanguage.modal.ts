@@ -16,14 +16,14 @@ export class TargetLanguageSettingModal extends Modal {
 	onOpen() {
 		const { contentEl } = this;
 
-		contentEl.createEl("h2", { text: "GPT Utils" });
+		contentEl.createEl("h2", { text: "GPT utils" });
 
 		contentEl.createEl("p", {
-			text: "For make translation please choose the Target Language to Translate and try again.",
+			text: "For make translation please choose the target language to translate and try again.",
 		});
 
 		new Setting(contentEl)
-			.setName("Select Target Language Option")
+			.setName("Select target language option")
 			.addDropdown((dropdown) => {
 				LANG_OPTIONS.forEach((option) => {
 					dropdown.addOption(option.isoCode, option.label);

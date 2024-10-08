@@ -9,7 +9,7 @@ export class GPTService {
 		settings: GPTSettings,
 		translateSettings: TranslationOptionsSettings
 	) {
-		if (settings.openaiApiKey === "empty") {
+		if (settings.openaiApiKey.trim().length === 0) {
 			throw new OpenAIAPIKeyMisConfigurationException();
 		}
 
@@ -22,7 +22,7 @@ export class GPTService {
 	}
 
 	async textTranslate(textContent: string): Promise<string> {
-		if (this.translateSettings.targetLang.isoCode === "empty") {
+		if (this.translateSettings.targetLang.isoCode.trim().length === 0) {
 			throw new TargetLangMisConfigurationException();
 		}
 
@@ -43,7 +43,7 @@ export class GPTService {
 			return completion.choices[0].message.content || "";
 		} catch (error) {
 			if (error instanceof Error) {
-				if (error.message.includes("Incorrect API key provided")) {
+				if (error.message.includes("Incorrect api key provided")) {
 					throw new OpenAIAPIKeyMisConfigurationException(
 						error.stack
 					);
@@ -62,6 +62,6 @@ export class TargetLangMisConfigurationException extends Error {
 
 export class OpenAIAPIKeyMisConfigurationException extends Error {
 	constructor(stack?: string) {
-		super("OpenAI API Key is not defined or is invalid");
+		super("OpenAI api key is not defined or is invalid");
 	}
 }
