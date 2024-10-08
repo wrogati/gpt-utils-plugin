@@ -1,6 +1,6 @@
 {
 	"name": "gpt-utils-plugin",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Generative AI helping daily with the good functions.",
 	"main": "main.js",
 	"scripts": {
@@ -15,7 +15,10 @@
 		"GPT",
 		"Translate"
 	],
-	"author": "",
+	"author": {
+		"name": "Wellington Rogati",
+		"email": "wellingtonrogati@gmail.com"
+	},
 	"license": "MIT",
 	"devDependencies": {
 		"@types/node": "^16.11.6",
