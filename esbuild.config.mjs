@@ -76,12 +76,14 @@ if (prod) {
 	await context.rebuild();
 
 	try {
+		console.log(`path ${process.env.OBSIDIAN_VAULT_BASE_PATH}`);
 		//This procedure exists only to make easy local tests
 		console.log(`Installing plugin...`);
+		//Important: this environment variable [OBSIDIAN_VAULT_BASE_PATH] is exported to development machine use to test locally, is not being used en .env file
 		const destination = `${process.env.OBSIDIAN_VAULT_BASE_PATH}/.obsidian/plugins/gpt-utils-plugin`;
 		await executeCommandWithSpawn("cp", [
 			"main.js",
-			"styles.css",
+			// "styles.css", //in this moment don't use style.css
 			"manifest.json",
 			destination,
 		]);
